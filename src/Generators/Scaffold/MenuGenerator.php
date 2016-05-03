@@ -52,6 +52,8 @@ class MenuGenerator extends BaseGenerator
     public function rollback()
     {
         if (Str::contains($this->menuContents, $this->menuTemplate)) {
+            $this->menuContents = str_replace($this->menuTemplate, '', $this->menuContents);
+            file_put_contents($this->path, $this->menuContents);
             $this->commandData->commandComment('menu deleted');
         }
     }
