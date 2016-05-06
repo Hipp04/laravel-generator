@@ -32,7 +32,7 @@ class InfyOmGeneratorServiceProvider extends ServiceProvider
         $configPath = __DIR__.'/../config/laravel_generator.php';
 
         $this->publishes([
-            $configPath => config_path('infyom/laravel_generator.php'),
+            $configPath => config_path('resource_generator.php'),
         ]);
     }
 
