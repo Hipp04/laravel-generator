@@ -57,7 +57,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
      */
     public function publishResourceRoutes()
     {
-        $routesPath = __DIR__.'/../../../templates/api/routes/resource.stub';
+        $routesPath = __DIR__.'/../../../templates/api/routes/resource_routes.stub';
 
         $apiRoutesPath = config('resource_generator.path.api_routes', app_path('Http/Routes/api.php'));
 
