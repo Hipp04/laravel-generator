@@ -1,11 +1,8 @@
-InfyOm Laravel Generator
+Laravel API and CRUD Generator
 ==============================
+Forked from infyomlabs/laravel-generator to make changes I would personally find useful.
 
-[![Total Downloads](https://poser.pugx.org/infyomlabs/laravel-generator/downloads)](https://packagist.org/packages/infyomlabs/laravel-generator)
-[![Monthly Downloads](https://poser.pugx.org/infyomlabs/laravel-generator/d/monthly)](https://packagist.org/packages/infyomlabs/laravel-generator)
-[![Daily Downloads](https://poser.pugx.org/infyomlabs/laravel-generator/d/daily)](https://packagist.org/packages/infyomlabs/laravel-generator)
-[![Latest Stable Version](https://poser.pugx.org/infyomlabs/laravel-generator/v/stable)](https://packagist.org/packages/infyomlabs/laravel-generator)
-[![Latest Unstable Version](https://poser.pugx.org/infyomlabs/laravel-generator/v/unstable)](https://packagist.org/packages/infyomlabs/laravel-generator)
-[![License](https://poser.pugx.org/infyomlabs/laravel-generator/license)](https://packagist.org/packages/infyomlabs/laravel-generator)
+API & Scaffold Generator from File
+----------------------------------
 
-Documentation is located [here](http://labs.infyom.com/laravelgenerator)
+php artisan infyom:api_scaffold $MODEL_NAME$ --fieldsFile=database/scaffolds/$MODEL_NAME$.json
