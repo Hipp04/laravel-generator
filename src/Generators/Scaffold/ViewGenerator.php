@@ -27,7 +27,7 @@ class ViewGenerator extends BaseGenerator
     {
         $this->commandData = $commandData;
         $this->path = $commandData->config->pathViews;
-        $this->templateType = config('infyom.laravel_generator.templates', 'core-templates');
+        $this->templateType = config('resource_generator.templates', 'core-templates');
     }
 
     public function generate()
@@ -184,7 +184,8 @@ class ViewGenerator extends BaseGenerator
                     foreach ($inputsArr as $item) {
                         $radioButtonsTemplate = TemplateUtil::fillFieldTemplate(
                             $this->commandData->fieldNamesMapping,
-                            $radioTemplate, $field
+                            $radioTemplate,
+                            $field
                         );
                         $radioButtonsTemplate = str_replace('$VALUE$', $item, $radioButtonsTemplate);
                         $radioButtons[] = $radioButtonsTemplate;

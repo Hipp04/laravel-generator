@@ -81,13 +81,15 @@ class BaseCommand extends Command
             ];
         }
 
-        $path = config('infyom.laravel_generator.path.schema_files', base_path('resources/model_schemas/'));
+        $path = config('resource_generator.path.schema_files', base_path('resources/model_schemas/'));
 
         $fileName = $this->commandData->modelName.'.json';
 
         if (file_exists($path.$fileName)) {
-            if (!$this->confirm('model file '.$fileName.' already exist. Do you want to overwrite it? [y|N]',
-                false)
+            if (!$this->confirm(
+                'model file '.$fileName.' already exist. Do you want to overwrite it? [y|N]',
+                false
+            )
             ) {
                 return;
             }

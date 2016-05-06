@@ -100,8 +100,8 @@ class LayoutPublishCommand extends PublishBaseCommand
 
     private function copyView()
     {
-        $viewsPath = config('infyom.laravel_generator.path.views', base_path('resources/views/'));
-        $templateType = config('infyom.laravel_generator.templates', 'core-templates');
+        $viewsPath = config('resource_generator.path.views', base_path('resources/views/'));
+        $templateType = config('resource_generator.templates', 'core-templates');
 
         $this->createDirectories($viewsPath);
 
@@ -116,7 +116,7 @@ class LayoutPublishCommand extends PublishBaseCommand
 
     private function updateRoutes()
     {
-        $path = config('infyom.laravel_generator.path.routes', app_path('Http/routes.php'));
+        $path = config('resource_generator.path.routes', app_path('Http/routes.php'));
         $routeContents = file_get_contents($path);
 
         $routesTemplate = TemplateUtil::getTemplate('routes.auth', 'laravel-generator');
@@ -138,7 +138,7 @@ class LayoutPublishCommand extends PublishBaseCommand
 
         $templateData = $this->fillTemplate($templateData);
 
-        $controllerPath = config('infyom.laravel_generator.path.controller', app_path('Http/Controllers/'));
+        $controllerPath = config('resource_generator.path.controller', app_path('Http/Controllers/'));
 
         $fileName = 'HomeController.php';
 
@@ -166,13 +166,13 @@ class LayoutPublishCommand extends PublishBaseCommand
     {
         $templateData = str_replace(
             '$NAMESPACE_CONTROLLER$',
-            config('infyom.laravel_generator.namespace.controller'),
+            config('resource_generator.namespace.controller'),
             $templateData
         );
 
         $templateData = str_replace(
             '$NAMESPACE_REQUEST$',
-            config('infyom.laravel_generator.namespace.request'),
+            config('resource_generator.namespace.request'),
             $templateData
         );
 

@@ -78,23 +78,23 @@ class GeneratorConfig
         }
 
         $this->nsApp = $commandData->commandObj->getLaravel()->getNamespace();
-        $this->nsRepository = config('infyom.laravel_generator.namespace.repository', 'App\Repositories').$prefix;
-        $this->nsModel = config('infyom.laravel_generator.namespace.model', 'App\Models').$prefix;
-        $this->nsDataTables = config('infyom.laravel_generator.namespace.datatables', 'App\DataTables').$prefix;
+        $this->nsRepository = config('resource_generator.namespace.repository', 'App\Repositories').$prefix;
+        $this->nsModel = config('resource_generator.namespace.model', 'App\Models').$prefix;
+        $this->nsDataTables = config('resource_generator.namespace.datatables', 'App\DataTables').$prefix;
         $this->nsModelExtend = config(
-            'infyom.laravel_generator.model_extend_class',
+            'resource_generator.model_extend_class',
             'Illuminate\Database\Eloquent\Model'
         );
 
         $this->nsApiController = config(
-            'infyom.laravel_generator.namespace.api_controller',
+            'resource_generator.namespace.api_controller',
             'App\Http\Controllers\API'
         ).$prefix;
-        $this->nsApiRequest = config('infyom.laravel_generator.namespace.api_request', 'App\Http\Requests\API').$prefix;
+        $this->nsApiRequest = config('resource_generator.namespace.api_request', 'App\Http\Requests\API').$prefix;
 
-        $this->nsRequest = config('infyom.laravel_generator.namespace.request', 'App\Http\Requests').$prefix;
-        $this->nsRequestBase = config('infyom.laravel_generator.namespace.request', 'App\Http\Requests');
-        $this->nsController = config('infyom.laravel_generator.namespace.controller', 'App\Http\Controllers').$prefix;
+        $this->nsRequest = config('resource_generator.namespace.request', 'App\Http\Requests').$prefix;
+        $this->nsRequestBase = config('resource_generator.namespace.request', 'App\Http\Requests');
+        $this->nsController = config('resource_generator.namespace.controller', 'App\Http\Controllers').$prefix;
     }
 
     public function loadPaths()
@@ -108,41 +108,41 @@ class GeneratorConfig
         }
 
         $this->pathRepository = config(
-            'infyom.laravel_generator.path.repository',
+            'resource_generator.path.repository',
             app_path('Repositories/')
         ).$prefixTitle;
 
-        $this->pathModel = config('infyom.laravel_generator.path.model', app_path('Models/')).$prefixTitle;
+        $this->pathModel = config('resource_generator.path.model', app_path('Models/')).$prefixTitle;
 
-        $this->pathDataTables = config('infyom.laravel_generator.path.datatables', app_path('DataTables/')).$prefixTitle;
+        $this->pathDataTables = config('resource_generator.path.datatables', app_path('DataTables/')).$prefixTitle;
 
         $this->pathApiController = config(
-            'infyom.laravel_generator.path.api_controller',
+            'resource_generator.path.api_controller',
             app_path('Http/Controllers/API/')
         ).$prefixTitle;
 
         $this->pathApiRequest = config(
-            'infyom.laravel_generator.path.api_request',
+            'resource_generator.path.api_request',
             app_path('Http/Requests/API/')
         ).$prefixTitle;
 
-        $this->pathApiRoutes = config('infyom.laravel_generator.path.api_routes', app_path('Http/api_routes.php'));
+        $this->pathApiRoutes = config('resource_generator.path.api_routes', app_path('Http/api_routes.php'));
 
-        $this->pathApiTests = config('infyom.laravel_generator.path.api_test', base_path('tests/'));
+        $this->pathApiTests = config('resource_generator.path.api_test', base_path('tests/'));
 
-        $this->pathApiTestTraits = config('infyom.laravel_generator.path.test_trait', base_path('tests/traits/'));
+        $this->pathApiTestTraits = config('resource_generator.path.test_trait', base_path('tests/traits/'));
 
         $this->pathController = config(
-            'infyom.laravel_generator.path.controller',
+            'resource_generator.path.controller',
             app_path('Http/Controllers/')
         ).$prefixTitle;
 
-        $this->pathRequest = config('infyom.laravel_generator.path.request', app_path('Http/Requests/')).$prefixTitle;
+        $this->pathRequest = config('resource_generator.path.request', app_path('Http/Requests/')).$prefixTitle;
 
-        $this->pathRoutes = config('infyom.laravel_generator.path.routes', app_path('Http/routes.php'));
+        $this->pathRoutes = config('resource_generator.path.routes', app_path('Http/routes.php'));
 
         $this->pathViews = config(
-            'infyom.laravel_generator.path.views',
+            'resource_generator.path.views',
             base_path('resources/views/')
         ).$prefix.'/'.$this->mCamelPlural.'/';
     }
@@ -190,12 +190,12 @@ class GeneratorConfig
 
         $commandData->addDynamicVariable(
             '$API_PREFIX$',
-            config('infyom.laravel_generator.api_prefix', 'api')
+            config('resource_generator.api_prefix', 'api')
         );
 
         $commandData->addDynamicVariable(
             '$API_VERSION$',
-            config('infyom.laravel_generator.api_version', 'v1')
+            config('resource_generator.api_version', 'v1')
         );
 
         return $commandData;
@@ -236,7 +236,7 @@ class GeneratorConfig
             }
         }
 
-        $this->options['softDelete'] = config('infyom.laravel_generator.options.softDelete', false);
+        $this->options['softDelete'] = config('resource_generator.options.softDelete', false);
     }
 
     public function overrideOptionsFromJsonFile($jsonData)
@@ -283,10 +283,10 @@ class GeneratorConfig
 
     public function prepareAddOns()
     {
-        $this->addOns['swagger'] = config('infyom.laravel_generator.add_on.swagger', false);
-        $this->addOns['tests'] = config('infyom.laravel_generator.add_on.tests', false);
-        $this->addOns['datatables'] = config('infyom.laravel_generator.add_on.datatables', false);
-        $this->addOns['menu.enabled'] = config('infyom.laravel_generator.add_on.menu.enabled', false);
-        $this->addOns['menu.menu_file'] = config('infyom.laravel_generator.add_on.menu.menu_file', 'layouts.menu');
+        $this->addOns['swagger'] = config('resource_generator.add_on.swagger', false);
+        $this->addOns['tests'] = config('resource_generator.add_on.tests', false);
+        $this->addOns['datatables'] = config('resource_generator.add_on.datatables', false);
+        $this->addOns['menu.enabled'] = config('resource_generator.add_on.menu.enabled', false);
+        $this->addOns['menu.menu_file'] = config('resource_generator.add_on.menu.menu_file', 'layouts.menu');
     }
 }

@@ -28,11 +28,10 @@ class MenuGenerator extends BaseGenerator
     {
         $this->commandData = $commandData;
         $this->path = config(
-            'infyom.laravel_generator.path.views',
-            base_path('resources/views/'
-            )
+            'resource_generator.path.views',
+            base_path('resources/views/')
         ).$commandData->getAddOn('menu.menu_file');
-        $this->templateType = config('infyom.laravel_generator.templates', 'core-templates');
+        $this->templateType = config('resource_generator.templates', 'core-templates');
 
         $this->menuContents = file_get_contents($this->path);
 

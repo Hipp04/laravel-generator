@@ -9,7 +9,7 @@ class TemplateUtil
         $templateName = str_replace('.', '/', $templateName);
 
         $templatesPath = config(
-            'infyom.laravel_generator.path.templates_dir',
+            'resource_generator.path.templates_dir',
             base_path('resources/infyom/infyom-generator-templates/')
         );
 

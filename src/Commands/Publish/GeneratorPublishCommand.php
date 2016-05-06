@@ -59,7 +59,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
     {
         $routesPath = __DIR__.'/../../../templates/api/routes/resource.stub';
 
-        $apiRoutesPath = config('infyom.laravel_generator.path.api_routes', app_path('Http/Routes/api.php'));
+        $apiRoutesPath = config('resource_generator.path.api_routes', app_path('Http/Routes/api.php'));
 
         $this->publishFile($routesPath, $apiRoutesPath, 'api.php');
     }
@@ -71,7 +71,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
     {
         $routesPath = __DIR__.'/../../../templates/api/routes/api_routes.stub';
 
-        $apiRoutesPath = config('infyom.laravel_generator.path.api_routes', app_path('Http/Routes/api.php'));
+        $apiRoutesPath = config('resource_generator.path.api_routes', app_path('Http/Routes/api.php'));
 
         $this->publishFile($routesPath, $apiRoutesPath, 'api.php');
     }
@@ -81,7 +81,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
      */
     private function initAPIRoutes()
     {
-        $path = config('infyom.laravel_generator.path.routes', app_path('Http/routes.php'));
+        $path = config('resource_generator.path.routes', app_path('Http/routes.php'));
 
         $routeContents = file_get_contents($path);
 
@@ -99,7 +99,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
     {
         $traitPath = __DIR__.'/../../../templates/test/api_test_trait.stub';
 
-        $testsPath = config('infyom.laravel_generator.path.api_test', base_path('tests/'));
+        $testsPath = config('resource_generator.path.api_test', base_path('tests/'));
 
         $this->publishFile($traitPath, $testsPath.'ApiTestTrait.php', 'ApiTestTrait.php');
 
@@ -115,7 +115,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
 
         $templateData = $this->fillTemplate($templateData);
 
-        $controllerPath = config('infyom.laravel_generator.path.controller', app_path('Http/Controllers/'));
+        $controllerPath = config('resource_generator.path.controller', app_path('Http/Controllers/'));
 
         $fileName = 'AppBaseController.php';
 
@@ -141,10 +141,10 @@ class GeneratorPublishCommand extends PublishBaseCommand
      */
     private function fillTemplate($templateData)
     {
-        $apiVersion = config('infyom.laravel_generator.api_version', 'v1');
-        $apiPrefix = config('infyom.laravel_generator.api_prefix', 'api');
+        $apiVersion = config('resource_generator.api_version', 'v1');
+        $apiPrefix = config('resource_generator.api_prefix', 'api');
         $apiNamespace = config(
-            'infyom.laravel_generator.namespace.api_controller',
+            'resource_generator.namespace.api_controller',
             'App\Http\Controllers\API'
         );
 
@@ -153,7 +153,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
         $templateData = str_replace('$API_PREFIX$', $apiPrefix, $templateData);
         $templateData = str_replace(
             '$NAMESPACE_CONTROLLER$',
-            config('infyom.laravel_generator.namespace.controller'),
+            config('resource_generator.namespace.controller'),
             $templateData
         );
 

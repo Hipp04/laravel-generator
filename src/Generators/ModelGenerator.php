@@ -80,13 +80,15 @@ class ModelGenerator extends BaseGenerator
             $templateData = str_replace('$SOFT_DELETE_DATES$', '', $templateData);
         } else {
             $templateData = str_replace(
-                '$SOFT_DELETE_IMPORT$', "use Illuminate\\Database\\Eloquent\\SoftDeletes;\n",
+                '$SOFT_DELETE_IMPORT$',
+                "use Illuminate\\Database\\Eloquent\\SoftDeletes;\n",
                 $templateData
             );
             $templateData = str_replace('$SOFT_DELETE$', infy_tab()."use SoftDeletes;\n", $templateData);
-            $deletedAtTimestamp = config('infyom.laravel_generator.timestamps.deleted_at', 'deleted_at');
+            $deletedAtTimestamp = config('resource_generator.timestamps.deleted_at', 'deleted_at');
             $templateData = str_replace(
-                '$SOFT_DELETE_DATES$', infy_nl_tab()."protected \$dates = ['".$deletedAtTimestamp."'];\n",
+                '$SOFT_DELETE_DATES$',
+                infy_nl_tab()."protected \$dates = ['".$deletedAtTimestamp."'];\n",
                 $templateData
             );
         }
