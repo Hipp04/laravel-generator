@@ -28,22 +28,52 @@ class GeneratorPublishCommand extends PublishBaseCommand
      */
     public function handle()
     {
-        $this->publishAPIRoutes();
+        $this->publishRoutes();
         $this->initAPIRoutes();
         $this->publishTestCases();
         $this->publishBaseController();
     }
 
     /**
-     * Publishes api_routes.php.
+     * Publishes API and Resource Routes
+     */
+    public function publishRoutes()
+    {
+        // create Http/Routes if not present
+        if (!is_dir(app_path('Http/Routes'))) {
+            try {
+                mkdir(app_path('Http/Routes'));
+            } catch (\Exception $e) {
+                $this->error('Failed to create Routes directory');
+            }
+        }
+
+        $this->publishAPIRoutes();
+        $this->publishResourceRoutes();
+    }
+
+    /**
+     * Publishes Routes/resource.php.
+     */
+    public function publishResourceRoutes()
+    {
+        $routesPath = __DIR__.'/../../../templates/api/routes/resource.stub';
+
+        $apiRoutesPath = config('infyom.laravel_generator.path.api_routes', app_path('Http/Routes/api.php'));
+
+        $this->publishFile($routesPath, $apiRoutesPath, 'api.php');
+    }
+
+    /**
+     * Publishes Routes/api.php.
      */
     public function publishAPIRoutes()
     {
         $routesPath = __DIR__.'/../../../templates/api/routes/api_routes.stub';
 
-        $apiRoutesPath = config('infyom.laravel_generator.path.api_routes', app_path('Http/api_routes.php'));
+        $apiRoutesPath = config('infyom.laravel_generator.path.api_routes', app_path('Http/Routes/api.php'));
 
-        $this->publishFile($routesPath, $apiRoutesPath, 'api_routes.php');
+        $this->publishFile($routesPath, $apiRoutesPath, 'api.php');
     }
 
     /**
@@ -61,8 +91,8 @@ class GeneratorPublishCommand extends PublishBaseCommand
 
         $templateData = $this->fillTemplate($templateData);
 
-        file_put_contents($path, $routeContents."\n\n".$templateData);
-        $this->comment("\nAPI group added to routes.php");
+        file_put_contents($path, $routeContents.PHP_EOL.$templateData);
+        $this->comment(PHP_EOL."API group added to routes.php");
     }
 
     private function publishTestCases()
@@ -123,7 +153,8 @@ class GeneratorPublishCommand extends PublishBaseCommand
         $templateData = str_replace('$API_PREFIX$', $apiPrefix, $templateData);
         $templateData = str_replace(
             '$NAMESPACE_CONTROLLER$',
-            config('infyom.laravel_generator.namespace.controller'), $templateData
+            config('infyom.laravel_generator.namespace.controller'),
+            $templateData
         );
 
         return $templateData;
