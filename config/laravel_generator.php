@@ -9,22 +9,22 @@ return [
     |
     */
     'path' => [
-        'migration'         => base_path('database/migrations/'),
-        'model'             => app_path('Models/'),
-        'datatables'        => app_path('DataTables/'),
-        'repository'        => app_path('Repositories/'),
-        'routes'            => app_path('Http/routes.php'),
-        'api_routes'        => app_path('Http/api_routes.php'),
-        'request'           => app_path('Http/Requests/'),
-        'api_request'       => app_path('Http/Requests/API/'),
-        'controller'        => app_path('Http/Controllers/'),
-        'api_controller'    => app_path('Http/Controllers/API/'),
-        'test_trait'        => base_path('tests/traits/'),
-        'repository_test'   => base_path('tests/'),
-        'api_test'          => base_path('tests/'),
-        'views'             => base_path('resources/views/'),
-        'schema_files'      => base_path('resources/model_schemas/'),
-        'templates_dir'     => base_path('resources/infyom/infyom-generator-templates/'),
+        'migration' => base_path('database/migrations/'),
+        'model' => app_path('Models/'),
+        'datatables' => app_path('DataTables/'),
+        'repository' => app_path('Repositories/'),
+        'routes' => app_path('Http/routes.php'),
+        'api_routes' => app_path('Http/api_routes.php'),
+        'request' => app_path('Http/Requests/'),
+        'api_request' => app_path('Http/Requests/API/'),
+        'controller' => app_path('Http/Controllers/'),
+        'api_controller' => app_path('Http/Controllers/API/'),
+        'test_trait' => base_path('tests/traits/'),
+        'repository_test' => base_path('tests/'),
+        'api_test' => base_path('tests/'),
+        'views' => base_path('resources/views/'),
+        'schema_files' => base_path('resources/model_schemas/'),
+        'templates_dir' => base_path('resources/infyom/infyom-generator-templates/'),
     ],
 
     /*
@@ -34,13 +34,13 @@ return [
     |
     */
     'namespace' => [
-        'model'             => 'App\Models',
-        'datatables'        => 'App\DataTables',
-        'repository'        => 'App\Repositories',
-        'controller'        => 'App\Http\Controllers',
-        'api_controller'    => 'App\Http\Controllers\API',
-        'request'           => 'App\Http\Requests',
-        'api_request'       => 'App\Http\Requests\API',
+        'model' => 'App\Models',
+        'datatables' => 'App\DataTables',
+        'repository' => 'App\Repositories',
+        'controller' => 'App\Http\Controllers',
+        'api_controller' => 'App\Http\Controllers\API',
+        'request' => 'App\Http\Requests',
+        'api_request' => 'App\Http\Requests\API',
     ],
 
     /*
@@ -49,7 +49,7 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'templates'         => 'core-templates',
+    'templates' => 'core-templates',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'api_prefix'  => 'api',
+    'api_prefix' => 'api',
     'api_version' => 'v1',
 
     /*
@@ -86,12 +86,12 @@ return [
     |
     */
     'add_on' => [
-        'swagger'       => true,
-        'tests'         => true,
-        'datatables'    => false,
-        'menu'          => [
-            'enabled'       => false,
-            'menu_file'     => 'layouts/menu.blade.php',
+        'swagger' => false,
+        'tests' => false,
+        'datatables' => false,
+        'menu' => [
+            'enabled' => false,
+            'menu_file' => 'layouts/menu.blade.php',
         ],
     ],
 
@@ -102,9 +102,9 @@ return [
     |
     */
     'timestamps' => [
-        'enabled'       => true,
-        'created_at'    => 'created_at',
-        'updated_at'    => 'updated_at',
-        'deleted_at'    => 'deleted_at',
+        'enabled' => true,
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at',
+        'deleted_at' => 'deleted_at',
     ]
 ];
