@@ -34,6 +34,7 @@ class GeneratorConfig
     public $pathController;
     public $pathRequest;
     public $pathRoutes;
+    public $pathResourceRoutes;
     public $pathViews;
 
     /* Model Names */
@@ -140,6 +141,7 @@ class GeneratorConfig
         $this->pathRequest = config('resource_generator.path.request', app_path('Http/Requests/')).$prefixTitle;
 
         $this->pathRoutes = config('resource_generator.path.routes', app_path('Http/routes.php'));
+        $this->pathResourceRoutes = config('resource_generator.path.resource_routes', app_path('Http/Routes/resource.php'));
 
         $this->pathViews = config(
             'resource_generator.path.views',

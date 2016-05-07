@@ -13,6 +13,7 @@ class RoutesGenerator
 
     /** @var string */
     private $path;
+    private $pathResource;
 
     /** @var string */
     private $routeContents;
@@ -23,7 +24,7 @@ class RoutesGenerator
     public function __construct(CommandData $commandData)
     {
         $this->commandData = $commandData;
-        $this->path = $commandData->config->pathRoutes;
+        $this->path = $commandData->config->pathResourceRoutes;
         $this->routeContents = file_get_contents($this->path);
         $this->routesTemplate = TemplateUtil::getTemplate('scaffold.routes.routes', 'laravel-generator');
         $this->routesTemplate = TemplateUtil::fillTemplate($this->commandData->dynamicVars, $this->routesTemplate);
