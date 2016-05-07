@@ -168,6 +168,7 @@ class GeneratorConfig
         $this->prepareTableName();
 
         $commandData->addDynamicVariable('$TABLE_NAME$', $this->tableName);
+        $commandData->addDynamicVariable('$TABLE_NAME_STUDLY$', Str::studly($this->tableName));
 
         $commandData->addDynamicVariable('$MODEL_NAME$', $this->mName);
         $commandData->addDynamicVariable('$MODEL_NAME_CAMEL$', $this->mCamel);
