@@ -9,3 +9,7 @@ Route::group(['prefix' => '$API_PREFIX$', 'namespace' => 'API'], function () {
         require config('resource_generator.path.api_routes');
     });
 });
+
+Route::group(['middleware' => 'auth'], function () {
+    require config('resource_generator.path.resource_routes');
+});

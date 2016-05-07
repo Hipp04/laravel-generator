@@ -48,6 +48,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
             }
         }
 
+        // publish the routes
         $this->publishAPIRoutes();
         $this->publishResourceRoutes();
     }
@@ -59,9 +60,9 @@ class GeneratorPublishCommand extends PublishBaseCommand
     {
         $routesPath = __DIR__.'/../../../templates/api/routes/resource_routes.stub';
 
-        $apiRoutesPath = config('resource_generator.path.api_routes', app_path('Http/Routes/api.php'));
+        $apiRoutesPath = config('resource_generator.path.resource_routes', app_path('Http/Routes/resource.php'));
 
-        $this->publishFile($routesPath, $apiRoutesPath, 'api.php');
+        $this->publishFile($routesPath, $apiRoutesPath, 'resource.php');
     }
 
     /**
@@ -92,7 +93,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
         $templateData = $this->fillTemplate($templateData);
 
         file_put_contents($path, $routeContents.PHP_EOL.$templateData);
-        $this->comment(PHP_EOL."API group added to routes.php");
+        $this->comment(PHP_EOL."API and resource groups added to routes.php");
     }
 
     private function publishTestCases()
