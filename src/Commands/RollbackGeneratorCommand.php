@@ -130,8 +130,8 @@ class RollbackGeneratorCommand extends Command
             $menuGenerator->rollback();
         }
 
-        $this->info('Generating autoload files');
-        $this->composer->dumpOptimized();
+        // $this->info('Generating autoload files');
+        // $this->composer->dumpOptimized();
     }
 
     /**
