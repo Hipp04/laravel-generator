@@ -101,7 +101,7 @@ class APIScaffoldGeneratorCommand extends BaseCommand
             $menuGenerator->generate();
         }
 
-        $this->performPostActionsWithMigration();
+        // $this->performPostActionsWithMigration();
     }
 
     /**
